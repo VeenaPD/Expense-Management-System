@@ -1,0 +1,19 @@
+.nav{
+  background: darkslateblue;
+  height: 100%;
+  ul{
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    .nav-item {
+     .nav-link {
+       display: block;
+       padding: 16px;
+       color: white;
+     }
+     .nav-link:active {
+       color: black;
+     }
+    }
+  }
+}

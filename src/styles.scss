@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+  height: 100vh;
+}
+
+.content {
+  display: grid;
+  grid-template-columns: 170px auto;
+  height: 100%;
+}
