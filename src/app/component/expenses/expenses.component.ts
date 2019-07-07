@@ -12,10 +12,13 @@ export class ExpensesComponent implements OnInit {
   @Input('expenseItems') expenseItems : Expense[];
   @Output('onEdit')onEdit: EventEmitter<any> = new EventEmitter<any>();
   constructor(public expenseService:ExpenseService) { }
-
   ngOnInit() {
   }
   
+  /**
+   * Undo the deleted expense
+   * @param id expenseId
+   */
   undoDelete(id:string){
     this.expenseService.toggleExpense(id)
   }

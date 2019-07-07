@@ -19,6 +19,7 @@ export class SettingsComponent implements OnInit {
       this.budget = b;
     })
   }
+
   getExpenseCategories(){
     return this.expenseCatService.getAllExpenseCategories()
   }
