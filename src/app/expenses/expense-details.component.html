@@ -1,1 +1,108 @@
-<p>expense-details works!</p>
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Add/Edit expense</h4>
+    <div class="container">
+      <form>
+        <div class="form-group row">
+          <label for="titleInput" class="col-sm-2 col-form-label">Title</label>
+          <div class="col-sm-10">
+          <input
+            type="email"
+            class="form-control"
+            id="titleInput"
+            placeholder="item 1"
+          />
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="categoryFormControlSelect" class="col-sm-2 col-form-label">Category select</label>
+          <div class="col-sm-10">
+          <select class="form-control" id="categoryFormControlSelect">
+            <option>Cat 1</option>
+            <option>Cat 2</option>
+            <option>Cat 3</option>
+            <option>Cat 4</option>
+            <option>Cat 5</option>
+          </select>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="amountInput" class="col-sm-2 col-form-label"> Amount </label>
+          <div class="col-sm-10">
+          <input
+            type="number"
+            class="form-control"
+            id="amountInput"
+            placeholder="100"
+          />
+          </div>
+        </div>
+      </form>
+      <form>
+        <div class="row">
+          <label for="datePickerInput" class="col-sm-2 col-form-label"> Expense date </label>
+          <div class="col-xs-12 col-md-5 col-lg-4 form-group">
+            <input
+              class="form-control"
+              #datepickerYMD="bsDatepicker"
+              bsDatepicker
+              formControlName="dateDMY"
+              [bsConfig]="{ dateInputFormat: 'DD-MM-YYYY' }">
+          </div>
+          <div class="col-xs-12 col-12 col-md-3 form-group">
+            <button class="btn btn-outline-success" (click)="datepickerYMD.toggle()" [attr.aria-expanded]="datepickerYMD.isOpen">Date Picker</button>
+          </div>
+        </div>
+      </form>
+
+      <div class="button-container">
+        <button type="button" class="btn btn-primary mr-2" (click)="onClickSave()">Save</button>
+
+        <button type="button" class="btn btn-secondary mr-2" data-toggle ="modal" data-target="#backConfirmModal"> Back </button>
+        <!-- Modal -->
+        <div class="modal fade" id="backConfirmModal" tabindex="-1" role="dialog" aria-labelledby="backConfirmModalId" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title"> Unsaved Changes </h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                Are you sure want to discard the changes made?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" (click)="onClickSave()" >Save</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmModal">Delete</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalId" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title">Warning</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                Are you sure to delete the expense?
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button type="button" class="btn btn-primary" (click)="onClickDelete()">Yes, delete </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

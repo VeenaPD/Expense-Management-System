@@ -1,0 +1,91 @@
+[{
+  "id": 1,
+  "category": {
+    "categoryName": "Emma"
+  },
+  "title": "Burthom",
+  "expenseAmount": 77,
+  "date": "7/25/2018",
+  "isDeleted": "true"
+}, {
+  "id": 2,
+  "category": {
+    "categoryName": "Barnaby"
+  },
+  "title": "Kinnane",
+  "expenseAmount": 32,
+  "date": "8/31/2018",
+  "isDeleted": "true"
+}, {
+  "id": 3,
+  "category": {
+    "categoryName": "Rozina"
+  },
+  "title": "Rebbeck",
+  "expenseAmount": 47,
+  "date": "5/6/2019",
+  "isDeleted": "true"
+}, {
+  "id": 4,
+  "category": {
+    "categoryName": "Donna"
+  },
+  "title": "Kensington",
+  "expenseAmount": 3,
+  "date": "2/4/2019",
+  "isDeleted": "true"
+}, {
+  "id": 5,
+  "category": {
+    "categoryName": "Darline"
+  },
+  "title": "Meechan",
+  "expenseAmount": 5,
+  "date": "9/18/2018",
+  "isDeleted": "true"
+}, {
+  "id": 6,
+  "category": {
+    "categoryName": "Lucilia"
+  },
+  "title": "Battersby",
+  "expenseAmount": 11,
+  "date": "7/24/2018",
+  "isDeleted": "true"
+}, {
+  "id": 7,
+  "category": {
+    "categoryName": "Blanca"
+  },
+  "title": "Greser",
+  "expenseAmount": 98,
+  "date": "1/13/2019",
+  "isDeleted": "true"
+}, {
+  "id": 8,
+  "category": {
+    "categoryName": "Jules"
+  },
+  "title": "Youthead",
+  "expenseAmount": 48,
+  "date": "12/22/2018",
+  "isDeleted": "true"
+}, {
+  "id": 9,
+  "category": {
+    "categoryName": "Lorrayne"
+  },
+  "title": "Robbert",
+  "expenseAmount": 11,
+  "date": "9/1/2018",
+  "isDeleted": "true"
+}, {
+  "id": 10,
+  "category": {
+    "categoryName": "Perri"
+  },
+  "title": "Housden",
+  "expenseAmount": 61,
+  "date": "8/26/2018",
+  "isDeleted": "true"
+}]

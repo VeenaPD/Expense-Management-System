@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { IExpense } from 'src/assets/models/expenses.model';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker/public_api';
+import { FormGroup, FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-expense-details',
@@ -6,10 +11,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./expense-details.component.scss']
 })
 export class ExpenseDetailsComponent implements OnInit {
-
-  constructor() { }
+  form = new FormGroup({
+    dateYMD: new FormControl(new Date()),
+    dateFull: new FormControl(new Date()),
+    dateMDY: new FormControl(new Date()),
+    dateRange: new FormControl([new Date(), new Date()])
+  });
+  expense: IExpense;
+  constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
+
+  }
+  onClickSave(){
+    this.router.navigate(['/home']);
+  }
+  onClickClose(){
+    this.router.navigate(['/home']);
+  }
+  onClickDelete(){
+    this.router.navigate(['/home']);
   }
 
 }

@@ -1,0 +1,25 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Category wise split</h5>
+    <hr />
+    <div class="row">
+      <div class="col-6">
+        <div class="chart">
+          <canvas
+            baseChart
+            [data]="categorySplitChartData"
+            [options]="categorySplitChartOptions"
+            [chartType]="categorySplitChartType"
+            [colors]="categorySplitChartColors"
+            [legend]="categorySplitChartLegend"
+          ></canvas>
+        </div>
+      </div>
+      <div col-6>
+        <ul>
+          <li>cat 1 - 20</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,1 +1,63 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <app-budget-overview></app-budget-overview>
+    </div>
+    <div class="col-md-6">
+      <app-category-split></app-category-split>
+    </div>
+  </div>
+
+  <div class="container">
+    <button
+      type="button"
+      class="btn btn-primary"
+      [routerLink]="['/expense', 0]"
+    >
+      Add expense
+    </button>
+  </div>
+  <div class="container">
+    <!-- <ngx-datatable [rowHeight]="'auto'" [rows]="expenseList" [headerHeight]="50" class="material"
+    [footerHeight]="50" [count]="true" [limit]="5">
+      <ngx-datatable-column name="Category">
+
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Item name">
+
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Amount">
+
+      </ngx-datatable-column>
+      <ngx-datatable-column name="Expense date">
+
+      </ngx-datatable-column>
+    </ngx-datatable> -->
+
+    <table class="table table-light">
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th>Item name</th>
+          <th>Amount</th>
+          <th>Expense date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let expense of expenseList">
+          <td>{{ expense.category.categoryName }}</td>
+          <td>{{ expense.title }}</td>
+          <td>
+            {{ expense.expenseAmount | currency: "INR":"symbol":"1.2-2" }}
+          </td>
+          <td>{{ expense.date }}</td>
+          <td>
+            <button type="button" class="btn btn-secondary"
+              [routerLink]="['/expense', expense.id]"> Edit
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
