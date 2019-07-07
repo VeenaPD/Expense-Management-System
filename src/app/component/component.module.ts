@@ -6,8 +6,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { BudgetOverviewComponent } from './budget-overview/budget-overview.component';
 import { CategorySplitComponent } from './category-split/category-split.component';
-import { SideMenuComponent } from './side-menu/side-menu.component';
-import { BsDatepickerModule } from 'ngx-bootstrap/datepicker/public_api';
 import { SettingsComponent } from './settings/settings.component';
 import { ChartsModule } from 'ng2-charts';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
