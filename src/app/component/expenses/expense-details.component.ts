@@ -1,7 +1,6 @@
-import { Component, OnInit, ViewChild, HostListener } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IExpense } from 'src/assets/models/expenses.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { BsDatepickerDirective } from 'ngx-bootstrap/datepicker/public_api';
 import { FormGroup, FormControl } from '@angular/forms';
 
 

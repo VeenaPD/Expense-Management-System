@@ -1,0 +1,12 @@
+<ngx-datatable [rowHeight]="'auto'" [rows]="expenseItems" [columnMode]="'flex'" [headerHeight]="50" class="material"
+[footerHeight]="50" [count]="true" [limit]="5">
+  <ngx-datatable-column name="Category" [flexGrow]="2" prop="category.categoryName"></ngx-datatable-column>
+  <ngx-datatable-column name="Item name" [flexGrow]="2" prop="title"></ngx-datatable-column>
+  <ngx-datatable-column name="Amount" [flexGrow]="1" prop="expenseAmount"></ngx-datatable-column>
+  <ngx-datatable-column name="Expense Date" [flexGrow]="1" prop="date"></ngx-datatable-column>
+  <ngx-datatable-column name="Options" [flexGrow]="1">
+    <ng-template ngx-datatable-cell-template>
+        <button type="button" class="btn btn-secondary" [routerLink]="['/expense', id]"> Edit </button>
+    </ng-template>
+</ngx-datatable-column>
+</ngx-datatable>

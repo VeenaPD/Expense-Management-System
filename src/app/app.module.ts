@@ -8,37 +8,26 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ExpenseDetailsComponent } from './expenses/expense-details.component';
-import { ExpensesComponent } from './expenses/expenses.component';
-import { HomeComponent } from './home/home.component';
-import { SettingsComponent } from './settings/settings.component';
-import { SideMenuComponent } from './side-menu/side-menu.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { BudgetOverviewComponent } from './budget-overview/budget-overview.component';
-import { CategorySplitComponent } from './category-split/category-split.component';
+import { ComponentModule } from './component/component.module';
+import { SideMenuComponent } from './component/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ExpensesComponent,
-    HomeComponent,
-    SettingsComponent,
-    SideMenuComponent,
-    ExpenseDetailsComponent,
-    BudgetOverviewComponent,
-    CategorySplitComponent
+    SideMenuComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule,
-    ChartsModule,
     HttpClientModule,
-    NgxDatatableModule,
     BsDatepickerModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ComponentModule,
+    AppRoutingModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

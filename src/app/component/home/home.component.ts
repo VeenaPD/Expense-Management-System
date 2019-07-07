@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IExpense } from 'src/assets/models/expenses.model';
-import { ExpenseService } from '../expense.service';
+import { ExpenseService } from 'src/app/services/expense.service';
 
 @Component({
   selector: 'app-home',

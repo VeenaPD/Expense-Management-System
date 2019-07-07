@@ -1,5 +1,5 @@
-import { Component, OnInit,EventEmitter, Input, Output } from '@angular/core';
-import { IExpense } from '../../assets/models/expenses.model';
+import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
+import { IExpense } from 'src/assets/models/expenses.model';
 
 
 @Component({
