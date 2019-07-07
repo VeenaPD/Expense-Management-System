@@ -125,5 +125,8 @@
       }
     }
   },
-  "defaultProject": "expense-management-system"
+  "defaultProject": "expense-management-system",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IExpense } from 'src/assets/models/expenses.model';
 import { ExpenseService } from 'src/app/services/expense.service';
+import { Expense } from 'src/app/models/Expense';
 
 @Component({
   selector: 'app-home',
@@ -9,7 +9,7 @@ import { ExpenseService } from 'src/app/services/expense.service';
 })
 export class HomeComponent implements OnInit {
 
-  expenseList: IExpense[];
+  expenseList: Expense[];
 
   constructor(public expenseService: ExpenseService) { }
 

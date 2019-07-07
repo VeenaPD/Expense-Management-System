@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { IExpense } from 'src/assets/models/expenses.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl } from '@angular/forms';
+import { Expense } from 'src/app/models/Expense';
 
 
 @Component({
@@ -16,7 +16,7 @@ export class ExpenseDetailsComponent implements OnInit {
     dateMDY: new FormControl(new Date()),
     dateRange: new FormControl([new Date(), new Date()])
   });
-  expense: IExpense;
+  expense: Expense;
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {

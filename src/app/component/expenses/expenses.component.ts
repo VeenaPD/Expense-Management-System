@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Input, Output } from '@angular/core';
-import { IExpense } from 'src/assets/models/expenses.model';
+import { Expense } from 'src/app/models/Expense';
 
 
 @Component({
@@ -8,7 +8,7 @@ import { IExpense } from 'src/assets/models/expenses.model';
   styleUrls: ['./expenses.component.scss']
 })
 export class ExpensesComponent implements OnInit {
-  @Input('expenseItems') expenseItems : IExpense[];
+  @Input('expenseItems') expenseItems : Expense[];
   @Output('onEdit')onEdit: EventEmitter<any> = new EventEmitter<any>();
   constructor() { }
 
