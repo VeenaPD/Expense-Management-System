@@ -1,13 +1,14 @@
 import { ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 import { environment } from '../../environments/environment';
-import { expenseCategoryReducer, expenseCategoryState } from './expense-category.reducer';
+import { expenseCategoryReducer, ExpenseCategoryState } from './expense-category.reducer';
 import { expenseReducer, ExpenseState } from './expense.reducer';
 import { settingsReducer, SettingsState } from './settings.reducer';
 
 export interface State {
+  Settings: any;
   expenses: ExpenseState;
-  expenseCategories: expenseCategoryState;
+  expenseCategories: ExpenseCategoryState;
   settings: SettingsState;
 }
 

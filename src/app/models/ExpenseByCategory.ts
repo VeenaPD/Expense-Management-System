@@ -1,6 +1,6 @@
 import { ExpenseCategory } from './ExpenseCategory';
 
-export interface IExpenseByCategory {
+export interface ExpenseByCategory {
   category: ExpenseCategory;
   total: number;
 }
