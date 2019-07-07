@@ -18,9 +18,10 @@ export function expenseCategoryReducer(state = initialState, action: expenseCate
       return expenseCategoryAdapter.addOne(action.payload, {...state})
     }
     case expenseCategoryActions.REMOVE_EXPENSE_CATEGORY: {
+      let cat = state.entities[action.payload];
       let update: Update<ExpenseCategory> = {
         id: action.payload,
-        changes: {isDeleted: true}
+        changes: {isDeleted:!cat.isDeleted }
       }
       return expenseCategoryAdapter.updateOne(update,{...state})
     }

@@ -6,7 +6,6 @@ import { expenseReducer, ExpenseState } from './expense.reducer';
 import { settingsReducer, SettingsState } from './settings.reducer';
 
 export interface State {
-  Settings: any;
   expenses: ExpenseState;
   expenseCategories: ExpenseCategoryState;
   settings: SettingsState;

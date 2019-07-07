@@ -8,7 +8,7 @@ import {
 } from '../actions/expense-category.actions';
 import { ExpenseCategory } from '../models/ExpenseCategory';
 import { State } from '../reducers';
-import { getAllExpenseCategoriesNotDeleted } from '../selectors/expense-category.selector';
+import { getAllExpenseCategoriesNotDeleted, selectAllExpenseCategorySelector, getExpenseCategoryById } from '../selectors/expense-category.selector';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +29,12 @@ export class ExpenseCategoryService {
     this.store.dispatch(new RemoveExpenseCategoryAction(id));
   }
   getAllExpenseCategories(){
+    return this.store.select(selectAllExpenseCategorySelector);
+  }
+  getAllExpenseCategoriesNotDeleted(){
     return this.store.select(getAllExpenseCategoriesNotDeleted);
+  }
+  getExpenseCategoryById(id:string){
+    return this.store.select(getExpenseCategoryById(id))
   }
 }

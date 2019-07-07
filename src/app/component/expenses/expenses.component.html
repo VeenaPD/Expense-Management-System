@@ -1,12 +1,52 @@
-<ngx-datatable [rowHeight]="'auto'" [rows]="expenseItems" [columnMode]="'flex'" [headerHeight]="50" class="material"
-[footerHeight]="50" [count]="true" [limit]="5">
-  <ngx-datatable-column name="Category" [flexGrow]="2" prop="category.category"></ngx-datatable-column>
-  <ngx-datatable-column name="Item name" [flexGrow]="2" prop="title"></ngx-datatable-column>
-  <ngx-datatable-column name="Amount" [flexGrow]="1" prop="amount"></ngx-datatable-column>
-  <ngx-datatable-column name="Expense Date" [flexGrow]="1" prop="date"></ngx-datatable-column>
-  <ngx-datatable-column name="Options" [flexGrow]="1">
-    <ng-template ngx-datatable-cell-template>
-        <button type="button" class="btn btn-secondary" [routerLink]="['/expense', id]"> Edit </button>
+<ngx-datatable
+  [rowHeight]="'auto'"
+  [rows]="expenseItems"
+  [columnMode]="'flex'"
+  [headerHeight]="50"
+  class="material"
+  [footerHeight]="50"
+  [count]="true"
+  [limit]="5"
+>
+  <ngx-datatable-column
+    name="Category"
+    [flexGrow]="2"
+    prop="category.name"
+  ></ngx-datatable-column>
+  <ngx-datatable-column name="Item name" [flexGrow]="2" prop="title">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      <span [ngClass]="!row.isDeleted ? 'null' : 'strikethrough'">{{row.title}}</span>
     </ng-template>
-</ngx-datatable-column>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column
+    name="Amount"
+    [flexGrow]="1"
+    prop="amount"
+  ></ngx-datatable-column>
+  <ngx-datatable-column name="Expense Date" [flexGrow]="1" prop="date">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      {{ value | amLocal | amDateFormat: "YYYY-MM-DD HH:mm" }}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column name="Options" [flexGrow]="1">
+    <ng-template ngx-datatable-cell-template let-value="value" let-row="row">
+      <button
+        type="button"
+        *ngIf="!row.isDeleted"
+        class="btn btn-secondary"
+        [routerLink]="['/expense', row.id]"
+      >
+        Edit
+      </button>
+      <button
+        type="button"
+        *ngIf="row.isDeleted"
+        class="btn btn-secondary"
+        (click)="undoDelete(row.id)"
+      >
+        Undo
+      </button>
+    </ng-template>
+  </ngx-datatable-column>
 </ngx-datatable>

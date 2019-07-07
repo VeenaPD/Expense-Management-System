@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as pluginDataLabels from 'chartjs-plugin-datalabels';
 import { ChartOptions, ChartType } from 'chart.js';
 
@@ -8,12 +8,10 @@ import { ChartOptions, ChartType } from 'chart.js';
   styleUrls: ['./budget-overview.component.scss']
 })
 export class BudgetOverviewComponent implements OnInit {
-
+  @Input('budget') budget:number;
+  @Input('expenses') expenses:number;
   public budgetChartOptions: ChartOptions = {
     responsive: true,
-    legend: {
-      position: 'right'
-    },
     plugins: {
       dataLabels: {
         formatter: (value, ctx) => {
@@ -23,18 +21,26 @@ export class BudgetOverviewComponent implements OnInit {
       }
     }
   };
-  public budgetChartData: number[] = [900, 400];
-  public budgetChartType: ChartType = 'pie';
-  public budgetChartLegend = true;
-  public budgetChartPlugins = [pluginDataLabels];
-  public budgetChartColors = [
+  budgetChartData: number[] = [];
+  budgetChartType: ChartType = 'pie';
+  budgetChartLegend = false;
+  budgetChartPlugins = [pluginDataLabels];
+  budgetChartColors = [
     {
       backgroundColor: ['rgba(255,0,0,0.3)', 'rgba(0,255,0,0.3)'],
     },
   ];
+  lables = ['Expenses','Remaining Budget'];
   constructor() { }
-
+  ngOnChanges(): void {
+    this.onChanged();
+  }
   ngOnInit() {
+    this.onChanged();
   }
 
+
+  private onChanged() {
+    this.budgetChartData = [this.expenses, this.budget - this.expenses];
+  }
 }

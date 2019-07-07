@@ -4,7 +4,7 @@ import { State } from '../reducers';
 import { expenseCategoryAdapter } from '../reducers/expense-category.reducer';
 
 export const expenseCategorySelector = (s: State) => s.expenseCategories;
-const selectAllExpenseCategorySelector = createSelector(expenseCategorySelector,expenseCategoryAdapter.getSelectors().selectAll);
+export const selectAllExpenseCategorySelector = createSelector(expenseCategorySelector,expenseCategoryAdapter.getSelectors().selectAll);
 
 export const getAllExpenseCategoriesNotDeleted = createSelector(
   selectAllExpenseCategorySelector,
@@ -12,3 +12,4 @@ export const getAllExpenseCategoriesNotDeleted = createSelector(
     return categories.filter(e => !e.isDeleted);
   }
 );
+export const getExpenseCategoryById = (id:string) => createSelector(expenseCategorySelector,state => state.entities[id]);

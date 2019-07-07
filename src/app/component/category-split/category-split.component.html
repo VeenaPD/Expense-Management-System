@@ -2,7 +2,7 @@
   <div class="card-body">
     <h5 class="card-title">Category wise split</h5>
     <hr />
-    <div class="row">
+    <div class="row" *ngIf="isDataPresent">
       <div class="col-6">
         <div class="chart">
           <canvas
@@ -12,14 +12,16 @@
             [chartType]="categorySplitChartType"
             [colors]="categorySplitChartColors"
             [legend]="categorySplitChartLegend"
+            [labels]="labels"
           ></canvas>
         </div>
       </div>
-      <div col-6>
-        <ul>
-          <li>cat 1 - 20</li>
-        </ul>
+    </div>
+    <div class="row" *ngIf="!isDataPresent">
+      <div class="col-6">
+          <span style="text-align: center;margin: 0 auto;" >No Data to Display...</span> 
       </div>
+      
     </div>
   </div>
 </div>

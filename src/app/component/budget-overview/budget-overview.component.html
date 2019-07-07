@@ -12,14 +12,15 @@
             [chartType]="budgetChartType"
             [colors]="budgetChartColors"
             [legend]="budgetChartLegend"
+            [labels]="lables"
           ></canvas>
         </div>
       </div>
       <div class="col-6">
         <h6>Total budget</h6>
-        <p>10,000</p>
+        <p>{{budget}}</p>
         <h6>Total Expense</h6>
-        <p>2,000</p>
+        <p>{{expenses}}</p>
       </div>
     </div>
   </div>

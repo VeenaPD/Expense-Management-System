@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <app-budget-overview></app-budget-overview>
+      <app-budget-overview [budget]="getCurrentBudget() | async" [expenses]="getTotalExpenses() | async"></app-budget-overview>
     </div>
     <div class="col-md-6">
-      <app-category-split></app-category-split>
+      <app-category-split [data]="getExpenseCategorised()| async"></app-category-split>
     </div>
   </div>
 
@@ -12,11 +12,11 @@
     <button
       type="button"
       class="btn btn-primary"
-      [routerLink]="['/expense', 0]">
+      [routerLink]="['/expense', 'create']">
       Add expense
     </button>
   </div>
   <div class="container">
-    <app-expenses [expenseItems]="expenseList"></app-expenses>
+    <app-expenses [expenseItems]="getAllExpenses() | async"></app-expenses>
   </div>
 </div>

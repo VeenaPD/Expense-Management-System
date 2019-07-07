@@ -10,7 +10,7 @@ import { Expense } from '../models/Expense';
 import { ExpenseCategory } from '../models/ExpenseCategory';
 import { State } from '../reducers';
 import {
-    getAllExpensesNotDeleted, getExpensesByCategory, getTotalExpenses
+    getAllExpensesNotDeleted, getExpensesByCategory, getTotalExpenses, getExpenseById, getAllExpensesSelector
 } from '../selectors/expense.selector';
 
 @Injectable({
@@ -21,7 +21,7 @@ export class ExpenseService {
   constructor(private store: Store<State>) { }
 
   getAllExpenses() {
-    return this.store.select(getAllExpensesNotDeleted);
+    return this.store.select(getAllExpensesSelector);
   }
   getAllExpensesGroupByCategory(){
     return this.store.select(getExpensesByCategory)
@@ -49,4 +49,8 @@ export class ExpenseService {
     let removeExpenseAction = new ToggleExpenseAction(exp);
     this.store.dispatch(removeExpenseAction);
   }
+  getExpenseById(id:string){
+    return this.store.select(getExpenseById(id))
+  }
+
 }

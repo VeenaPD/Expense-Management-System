@@ -18,23 +18,28 @@ const initialState: ExpenseState = expenseEntityAdapter.getInitialState();
 export function expenseReducer(state = initialState, action: expenseActions.ExpenseActionType): ExpenseState{
   switch(action.type) {
     case expenseActions.ADD_EXPENSE_ACTION: {
+      return expenseEntityAdapter.addOne(action.payload,{...state})
+  }
+  case expenseActions.TOGGLE_EXPENSE_ACTION: {
       let exp = state.entities[action.payload];
-      let update: Update<Expense> = {
-        id: exp.id,
-        changes:{isDeleted:!exp.isDeleted}
+
+      let update:Update<Expense> = {
+          id:exp.id,
+          changes:{isDeleted:!exp.isDeleted}
       }
+
       return expenseEntityAdapter.updateMany([update],{...state})
-    }
-    case expenseActions.UPDATE_EXPENSE_ACTION: {
-      let update: Update<Expense> = {
-        id: action.payload.id,
-        changes: {...action.payload}
+  }
+  case expenseActions.UPDATE_EXPENSE_ACTION: {
+      let update:Update<Expense> = {
+          id:action.payload.id,
+          changes:{...action.payload}
       }
-      return expenseEntityAdapter.updateOne(update, {...state})
-    }
-    default: {
+      return expenseEntityAdapter.updateOne(update,{...state})
+  }
+  default: {
       return state;
-    }
+  }
   }
 
 }

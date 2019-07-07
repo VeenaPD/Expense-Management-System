@@ -9,7 +9,7 @@ import { expenseEntityAdapter } from '../reducers/expense.reducer';
 export const expensesSelector = (state: State) => state.expenses;
 
 const selectAllExpenses = expenseEntityAdapter.getSelectors().selectAll;
-const getAllExpensesSelector = createSelector(expensesSelector, selectAllExpenses);
+export const getAllExpensesSelector = createSelector(expensesSelector, selectAllExpenses);
 
 export const getAllExpensesNotDeleted = createSelector(getAllExpensesSelector, (expenses) => {
   return expenses.filter(exp => !exp.isDeleted)
@@ -20,6 +20,8 @@ export const getTotalExpenses = createSelector(getAllExpensesNotDeleted, (expens
     return expense.amount + total;
   }, 0);
 });
+
+export const getExpenseById = (id) => createSelector(expensesSelector,state => state.entities[id])
 
 export const getExpensesByCategory = createSelector(getAllExpensesNotDeleted, (expenses) => {
   let expensesGroupedByCategory = groupBy(expenses, (e) => e.category.id);

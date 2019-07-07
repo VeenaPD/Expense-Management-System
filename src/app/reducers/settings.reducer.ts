@@ -4,7 +4,7 @@ import { Settings } from '../models/Settings';
 export interface SettingsState extends Settings{};
 
 const initialState: SettingsState = {
-  budget: 1000,
+  budget: 100,
   updatedAt: new Date()
 }
 
