@@ -11,7 +11,7 @@ import { SettingsService } from 'src/app/services/settings.service';
 })
 export class HomeComponent implements OnInit {
 
-  expenseList: Expense[];
+  expenseList: Expense[] = [];
 
   constructor(public expenseService: ExpenseService,public expenseCat:ExpenseCategoryService,public settingsService:SettingsService) { }
 
