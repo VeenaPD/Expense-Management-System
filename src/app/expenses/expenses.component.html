@@ -1,1 +1,29 @@
-<p>expenses works!</p>
+<table class="table table-light">
+  <thead>
+    <tr>
+      <th>Category</th>
+      <th>Item name</th>
+      <th>Amount</th>
+      <th>Expense date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let expense of expenseItems">
+      <td>{{ expense.category.categoryName }}</td>
+      <td>{{ expense.title }}</td>
+      <td>
+        {{ expense.expenseAmount | currency: "INR":"symbol":"1.2-2" }}
+      </td>
+      <td>{{ expense.date }}</td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          [routerLink]="['/expense', expense.id]"
+        >
+          Edit
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

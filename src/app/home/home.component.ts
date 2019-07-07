@@ -10,7 +10,7 @@ import { ExpenseService } from '../expense.service';
 export class HomeComponent implements OnInit {
 
   expenseList: IExpense[];
-  rows;
+
   constructor(public expenseService: ExpenseService) { }
 
   ngOnInit() {
