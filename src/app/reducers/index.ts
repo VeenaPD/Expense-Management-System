@@ -1,18 +1,20 @@
-import {
-  ActionReducer,
-  ActionReducerMap,
-  createFeatureSelector,
-  createSelector,
-  MetaReducer
-} from '@ngrx/store';
+import { ActionReducerMap, MetaReducer } from '@ngrx/store';
+
 import { environment } from '../../environments/environment';
+import { expenseCategoryReducer, expenseCategoryState } from './expense-category.reducer';
+import { expenseReducer, ExpenseState } from './expense.reducer';
+import { settingsReducer, SettingsState } from './settings.reducer';
 
 export interface State {
-
+  expenses: ExpenseState;
+  expenseCategories: expenseCategoryState;
+  settings: SettingsState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-
+  expenses: expenseReducer,
+  expenseCategories: expenseCategoryReducer,
+  settings: settingsReducer
 };
 
 

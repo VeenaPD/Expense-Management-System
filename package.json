@@ -25,13 +25,17 @@
     "@ngrx/store": "^8.0.1",
     "@ngrx/store-devtools": "^8.0.1",
     "@swimlane/ngx-datatable": "^15.0.2",
+    "@types/lodash": "^4.14.135",
+    "@types/uuid": "^3.4.5",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "chartjs-plugin-datalabels": "^0.6.0",
+    "lodash": "^4.17.11",
     "ng2-charts": "^2.3.0",
     "ngx-bootstrap": "^5.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
+    "uuid": "^3.3.2",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

@@ -19,7 +19,7 @@ export class UpdateExpenseAction implements Action {
   constructor(public payload: Expense){ }
 }
 
-export type ExpenseActions =
+export type ExpenseActionType =
 AddExpenseAction |
 ToggleExpenseAction |
 UpdateExpenseAction;

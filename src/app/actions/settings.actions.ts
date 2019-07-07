@@ -6,4 +6,4 @@ export class UpdateBudgetAction implements Action {
   readonly type = UPDATE_BUDGET;
   constructor(public payload: number) { }
 }
-export type SettingsActions = UpdateBudgetAction;
+export type SettingsActionType = UpdateBudgetAction;

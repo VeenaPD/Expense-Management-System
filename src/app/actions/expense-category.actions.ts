@@ -13,6 +13,6 @@ export class RemoveExpenseCategoryAction implements Action {
   readonly type = REMOVE_EXPENSE_CATEGORY;
   constructor(public payload: string) { }
 }
-export type ExpenseCategoryActions =
+export type ExpenseCategoryActionType =
 AddExpenseCategoryAction |
 RemoveExpenseCategoryAction;
