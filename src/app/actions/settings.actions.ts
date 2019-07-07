@@ -1,14 +1,9 @@
 import { Action } from '@ngrx/store';
 
-export enum SettingsActionTypes {
-  LoadSettingss = '[Settings] Load Settingss',
-  
-  
+export const UPDATE_BUDGET = '[SETTINGS] UPDATE_BUDGET';
+
+export class UpdateBudgetAction implements Action {
+  readonly type = UPDATE_BUDGET;
+  constructor(public payload: number) { }
 }
-
-export class LoadSettingss implements Action {
-  readonly type = SettingsActionTypes.LoadSettingss;
-}
-
-
-export type SettingsActions = LoadSettingss;
+export type SettingsActions = UpdateBudgetAction;

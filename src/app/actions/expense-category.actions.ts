@@ -1,14 +1,18 @@
 import { Action } from '@ngrx/store';
+import { ExpenseCategory } from '../models/ExpenseCategory';
 
-export enum ExpenseCategoryActionTypes {
-  LoadExpenseCategorys = '[ExpenseCategory] Load ExpenseCategorys',
-  
-  
+export const ADD_EXPENSE_CATEGORY = '[EXPENSE_CATEGORY] ADD_EXPENSE_CATEGORY';
+export const REMOVE_EXPENSE_CATEGORY = '[EXPENSE_CATEGORY] REMOVE_EXPENSE_CATEGORY';
+
+export class AddExpenseCategoryAction implements Action {
+  readonly type = ADD_EXPENSE_CATEGORY;
+  constructor(public payload: ExpenseCategory) { }
 }
 
-export class LoadExpenseCategorys implements Action {
-  readonly type = ExpenseCategoryActionTypes.LoadExpenseCategorys;
+export class RemoveExpenseCategoryAction implements Action {
+  readonly type = REMOVE_EXPENSE_CATEGORY;
+  constructor(public payload: string) { }
 }
-
-
-export type ExpenseCategoryActions = LoadExpenseCategorys;
+export type ExpenseCategoryActions =
+AddExpenseCategoryAction |
+RemoveExpenseCategoryAction;
