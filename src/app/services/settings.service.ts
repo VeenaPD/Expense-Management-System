@@ -11,10 +11,16 @@ import { getTotalBudgetSelector } from '../selectors/settings.selector';
 export class SettingsService {
 
   constructor(public store: Store<State>) { }
-
+  /**
+  Get total budget of user by getTotalBudgetSelector
+   */
   getTotalBudget(){
     return this.store.select(getTotalBudgetSelector)
   }
+   /**
+  Update budget of user by dispatching updateBudgetAction
+  @param newBudget number
+   */
   updateBudget(newBudget){
     this.store.dispatch(new UpdateBudgetAction(newBudget));
   }

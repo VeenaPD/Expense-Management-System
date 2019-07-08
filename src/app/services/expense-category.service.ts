@@ -16,7 +16,10 @@ import { getAllExpenseCategoriesNotDeleted, selectAllExpenseCategorySelector, ge
 export class ExpenseCategoryService {
 
   constructor(public store: Store<State>) { }
-
+  /**
+   * Add new expense category, by dispatching AddExpenseCategoryAction
+   * @param name expenseCategoryName  
+   */
   addExpenseCategory(name){
     let category: ExpenseCategory = {
       name,
@@ -25,15 +28,29 @@ export class ExpenseCategoryService {
     }
     this.store.dispatch(new AddExpenseCategoryAction(category));
   }
+  /**
+   * Remove expense category, by dispatching RemoveExpenseCategoryAction
+   * @param id expenseCategoryId 
+   */
   removeExpenseCategory(id) {
     this.store.dispatch(new RemoveExpenseCategoryAction(id));
   }
+  /**
+   * Get all expense categories, by using selector selectAllExpenseCategorySelector
+   */
   getAllExpenseCategories(){
     return this.store.select(selectAllExpenseCategorySelector);
   }
+  /**
+   * Get all expense categories not deleted by user, using selector getAllExpenseCategoriesNotDeleted
+   */
   getAllExpenseCategoriesNotDeleted(){
     return this.store.select(getAllExpenseCategoriesNotDeleted);
   }
+   /**
+   * fetch expense category by id, using selector getExpenseCategoryById 
+   * @param id expenseCategoryId
+   */
   getExpenseCategoryById(id:string){
     return this.store.select(getExpenseCategoryById(id))
   }
