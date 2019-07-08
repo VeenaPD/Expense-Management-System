@@ -48,7 +48,7 @@ export class ExpenseDetailsComponent implements OnInit {
   }
 
   /**
-   * To Create new expense
+   * To Create new expense item using ExpenseCatService
    */
   initialiseNewExpense(){
     this.expenseCatService.getAllExpenseCategories().pipe(take(1)).subscribe(e => {
@@ -58,7 +58,7 @@ export class ExpenseDetailsComponent implements OnInit {
     });
   }
   /**
-   * Edit existing expense
+   * Edit existing expense by subcribing for getExpenseById()
    * @param id expenseId
    */
   getExpenseById(id){
@@ -71,19 +71,19 @@ export class ExpenseDetailsComponent implements OnInit {
     });
   }
   /**
-   * Valid all expense inputs are provided
+   * Validates all expense inputs provided by user
    */
   isExpenseValid(){
     return this.title && this.amount && this.category && true;
   }
   /**
-   * Creates new expense item
+   * Creates new expense item using addExpense()
    */
   createExpense(){
     this.expenseService.addExpense(this.title,this.amount,this.category);
   }
   /**
-   * Update's edited expense item
+   * Update edited expense item using updateExpense()
    */
   updateExpense(){
     let exp:Expense = <any>{
@@ -102,8 +102,8 @@ export class ExpenseDetailsComponent implements OnInit {
       this.expenseService.toggleExpense(this.id);
   }
   /**
-   * To select expense category
-   * @param id expenseId
+   * To select expense category during creation of expense
+  * @param id expenseId
    */
   onExpenseCategorySelected(id:string){
     this.expenseCatService.getExpenseCategoryById(id).pipe(take(1)).subscribe(cat => {
