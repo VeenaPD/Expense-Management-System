@@ -32,14 +32,21 @@ export class BudgetOverviewComponent implements OnInit {
   ];
   lables = ['Expenses','Remaining Budget'];
   constructor() { }
+  /**
+   * Budget data is changed
+   */
   ngOnChanges(): void {
     this.onChanged();
   }
+  /**
+   * onInit fetchs for latest changes in budget data
+   */
   ngOnInit() {
     this.onChanged();
   }
-
-
+  /**
+   * Changes budget data is reflected on chart 
+   */
   private onChanged() {
     this.budgetChartData = [this.expenses, this.budget - this.expenses];
   }

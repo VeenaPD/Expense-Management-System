@@ -30,7 +30,11 @@ export class ExpenseDetailsComponent implements OnInit {
   isNewExpense:boolean = false;
 
   constructor(private route: ActivatedRoute, private router: Router,public expenseCatService:ExpenseCategoryService,public expenseService:ExpenseService) { }
-
+  /**
+   * component onInit 
+   * creates new expense item or edit existing expense item by getting params route snapshot
+   * @param id expenseId
+   */
   ngOnInit() {
     let {params} = this.route.snapshot;
     let id = params['id'];
@@ -43,6 +47,9 @@ export class ExpenseDetailsComponent implements OnInit {
     }
   }
 
+  /**
+   * To Create new expense
+   */
   initialiseNewExpense(){
     this.expenseCatService.getAllExpenseCategories().pipe(take(1)).subscribe(e => {
         this.title = '';
@@ -50,6 +57,10 @@ export class ExpenseDetailsComponent implements OnInit {
         this.category = e[0];
     });
   }
+  /**
+   * Edit existing expense
+   * @param id expenseId
+   */
   getExpenseById(id){
     this.expenseService.getExpenseById(id).pipe(take(1)).subscribe(exp => {
       if(exp){
@@ -59,12 +70,21 @@ export class ExpenseDetailsComponent implements OnInit {
       }
     });
   }
+  /**
+   * Valid all expense inputs are provided
+   */
   isExpenseValid(){
     return this.title && this.amount && this.category && true;
   }
+  /**
+   * Creates new expense item
+   */
   createExpense(){
     this.expenseService.addExpense(this.title,this.amount,this.category);
   }
+  /**
+   * Update's edited expense item
+   */
   updateExpense(){
     let exp:Expense = <any>{
       id:this.id,
@@ -74,15 +94,25 @@ export class ExpenseDetailsComponent implements OnInit {
     }
     this.expenseService.updateExpense(exp)
   }
+  /**
+   * Deletes expense item(soft delete)
+   * @param id expenseId
+   */
   deleteExpense(){
       this.expenseService.toggleExpense(this.id);
   }
+  /**
+   * To select expense category
+   * @param id expenseId
+   */
   onExpenseCategorySelected(id:string){
     this.expenseCatService.getExpenseCategoryById(id).pipe(take(1)).subscribe(cat => {
       this.category = cat;
     })
   }
-
+  /**
+   * To save created new expense or updated new expense
+   */
   save(){
     if(this.isNewExpense){
       this.createExpense();
@@ -90,14 +120,22 @@ export class ExpenseDetailsComponent implements OnInit {
       this.updateExpense();
     }
   }
-
+  /**
+   * Saves edit data of expense item
+   */
   onClickSave(){
     this.save();
     this.router.navigate(['/home']);
   }
+  /**
+   * Closes expense details page, navigate back to home
+   */
   onClickClose(){
     this.router.navigate(['/home']);
   }
+  /**
+   * Delete expense item, navigate back to home
+   */
   onClickDelete(){
     this.deleteExpense();
     this.router.navigate(['/home']);

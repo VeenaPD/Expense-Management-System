@@ -37,13 +37,22 @@ export class CategorySplitComponent implements OnInit {
   ];
   constructor() { }
   labels = [];
+  /**
+   * Initializes pie chart setup for expense data
+   */
   ngOnInit() {
     console.log(this.data);
     this.setUpPieChart();
   }
+  /**
+   * Changes in expense data reflected on chart
+   */
   ngOnChanges(): void {
     this.setUpPieChart();
   }
+  /**
+   * Pie chart setup to changed expense data
+   */
   setUpPieChart(){
     if(this.data.length  === 0){
       this.isDataPresent = false;

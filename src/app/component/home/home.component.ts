@@ -18,15 +18,27 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
         
   }
+  /**
+   * Fetch list of all expenses
+   */
   getAllExpenses(){
     return this.expenseService.getAllExpenses();
   }
+  /**
+   * Fetch current budget
+   */
   getCurrentBudget(){
     return this.settingsService.getTotalBudget();
   }
+  /**
+   * Get total expenses
+   */
   getTotalExpenses(){
     return this.expenseService.getTotalExpenses();
   }
+  /**
+   * Fetch all expenses group by category
+   */
   getExpenseCategorised(){
     return this.expenseService.getAllExpensesGroupByCategory();
   }
